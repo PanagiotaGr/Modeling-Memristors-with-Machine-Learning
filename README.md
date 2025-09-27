@@ -72,6 +72,106 @@ Dataset available on **[Kaggle](https://www.kaggle.com/)** in `.mat` format.
 Follow these steps to set up and run the project.
 
 ### 1. Clone the Repository
-```bash
+`bash
 git clone https://github.com/Lily-Evan/Modeling-Memristors-with-Machine-Learning.git
 cd Modeling-Memristors-with-Machine-Learning
+
+
+
+
+ 2. Install Dependencies
+pip install numpy scipy matplotlib scikit-learn tensorflow
+
+3. Load the Dataset
+from scipy.io import loadmat
+
+# Load the .mat file
+data = loadmat('memristor_data.mat')
+
+# Example: Access Yakopcic model data
+yakopcic_V = data['Yakopcic']['V'][0][0]
+yakopcic_I = data['Yakopcic']['I'][0][0]
+
+4. Preprocess the Data
+from sklearn.preprocessing import MinMaxScaler
+
+# Example: normalization
+scaler = MinMaxScaler()
+V_scaled = scaler.fit_transform(yakopcic_V.reshape(-1, 1))
+I_scaled = scaler.fit_transform(yakopcic_I.reshape(-1, 1))
+
+5. Train the Models
+
+Run the Jupyter notebook:
+
+jupyter notebook "Modeling Memristors with Machine Learning.ipynb"
+
+
+Inside the notebook:
+
+Regression: Linear Regression & Neural Networks
+
+Classification: Random Forest
+
+Sequential: LSTM for time-series prediction
+
+6. Visualize the Results
+
+Plot I-V curves
+
+Plot R-V hysteresis loops
+
+Compare Predicted vs Actual currents
+
+📈 Results
+
+✅ LSTM models achieved high accuracy in predicting current for all memristor types
+
+✅ Random Forest performed well in classifying resistance states
+
+✅ Visualizations highlighted distinct hysteresis behavior of different models
+
+✅ Multi-feature sequences improved sequential predictions vs. using voltage only
+
+📦 Dependencies
+
+NumPy
+ — numerical computing
+
+SciPy
+ — for .mat data handling
+
+Matplotlib
+ — visualization
+
+scikit-learn
+ — regression & classification
+
+TensorFlow/Keras
+ — LSTM modeling
+
+📁 Project Structure
+Modeling-Memristors-with-Machine-Learning/
+│
+├─ memristor_data.mat                         # Dataset
+├─ Modeling Memristors with Machine Learning.ipynb  # Main Notebook
+├─ README.md                                  # Documentation
+└─ utils.py                                   # Helper functions (optional)
+
+🔮 Future Work
+
+📊 Multi-class resistance classification (Low / Medium / High)
+
+🔧 Integration of more device parameters for better predictions
+
+🧠 Neuromorphic circuit simulations using memristor arrays
+
+📈 Interactive dashboards (Plotly/Dash) for real-time analysis
+
+👩‍💻 Author / Contact
+
+Author: Lily-Evan (original repo) / Adapted by Panagiota G for improved README
+
+Kaggle Notebook: Modeling Memristors with Machine Learning
+
+⭐ This project bridges the gap between memristor physics and modern ML techniques, providing tools for better predictions and advancing research in neuromorphic computing.
