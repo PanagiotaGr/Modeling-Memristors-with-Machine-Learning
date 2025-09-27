@@ -78,21 +78,20 @@ The dataset is available on **[Kaggle](https://www.kaggle.com/)** in `.mat` form
 ---
 
 ## 🚀 How to Run
+Follow these steps to run the project locally or on Kaggle.
 
-Follow these steps to run the project locally or on Kaggle:
+---
 
 ### 1. Clone the Repository
-```bash
+
 git clone https://github.com/yourusername/memristor-ml.git
 cd memristor-ml
 
-###2. Install Dependencies
-```bash
-
+2. Install Dependencies
 pip install numpy scipy matplotlib scikit-learn tensorflow
-3. Load the Dataset
-python
 
+
+3. Load the Dataset
 from scipy.io import loadmat
 
 # Load the .mat file
@@ -101,27 +100,30 @@ data = loadmat('memristor_data.mat')
 # Example: access Yakopcic model data
 yakopcic_V = data['Yakopcic']['V'][0][0]
 yakopcic_I = data['Yakopcic']['I'][0][0]
+
+
 4. Preprocess the Data
+
 Extract V and I for each model
 
 Normalize or standardize features
 
 Create sliding windows for sequential tasks
 
-python
-Αντιγραφή κώδικα
-# Example: normalize
 from sklearn.preprocessing import MinMaxScaler
 
+# Example: normalize
 scaler = MinMaxScaler()
 V_scaled = scaler.fit_transform(yakopcic_V.reshape(-1, 1))
 I_scaled = scaler.fit_transform(yakopcic_I.reshape(-1, 1))
+
 5. Train the Models
+
 Run the Jupyter or Kaggle notebook:
 
-bash
-Αντιγραφή κώδικα
 jupyter notebook "Modeling Memristors with Machine Learning.ipynb"
+
+
 Inside the notebook:
 
 Regression: Linear Regression & Neural Networks
@@ -131,44 +133,45 @@ Classification: Random Forest
 Sequential: LSTM for time-series current prediction
 
 6. Visualize the Results
+
 Plot I-V curves
 
 Plot R-V hysteresis loops
 
 Compare predicted vs actual currents
 
-📈 Results
-✅ LSTM models provided accurate current predictions across all memristor types
 
-✅ Random Forest achieved high accuracy in resistance-state classification
+---
 
-✅ Visualizations revealed distinct hysteresis behavior among models
+## 📈 Results
+- ✅ LSTM models provided accurate current predictions across all memristor types  
+- ✅ Random Forest achieved high accuracy in resistance-state classification  
+- ✅ Visualizations revealed distinct hysteresis behavior among models  
+- ✅ Multi-feature inputs improved sequential prediction compared to voltage-only inputs
 
-✅ Multi-feature inputs improved sequential prediction compared to voltage-only inputs
+---
 
-📦 Dependencies
+## 📦 Dependencies
 Core Libraries:
+- [NumPy](https://numpy.org/) — numerical computing  
+- [SciPy](https://scipy.org/) — `.mat` data handling  
+- [Matplotlib](https://matplotlib.org/) — visualization  
+- [scikit-learn](https://scikit-learn.org/) — regression & classification  
+- [TensorFlow/Keras](https://www.tensorflow.org/) — LSTM modeling
 
-NumPy — numerical computing
+---
 
-SciPy — .mat data handling
-
-Matplotlib — visualization
-
-scikit-learn — regression & classification
-
-TensorFlow/Keras — LSTM modeling
-
-📁 Project Structure
-csharp
-Αντιγραφή κώδικα
+## 📁 Project Structure
+```bash
 memristor-ml/
 │
 ├─ memristor_data.mat                         # Dataset
 ├─ Modeling Memristors with Machine Learning.ipynb  # Main Notebook
 ├─ README.md                                  # Documentation
-└─ utils.py                                   # (Optional) Helper functions
+└─
+
 🔮 Future Work
+
 📊 Multi-class resistance classification (Low / Medium / High)
 
 🔧 Integration of additional device parameters for better prediction
@@ -178,8 +181,10 @@ memristor-ml/
 📈 Interactive dashboards (Plotly/Dash) for real-time exploration
 
 👩‍💻 Author / Contact
+
 Author: Panagiota G
 
 Kaggle Notebook: Modeling Memristors with Machine Learning
 
 ⭐ This project bridges the gap between the physics of memristors and modern ML techniques, enabling reliable predictions and advancing research in neuromorphic computing and memory technologies.
+
