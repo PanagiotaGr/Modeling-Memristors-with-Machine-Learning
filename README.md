@@ -1,76 +1,77 @@
-# 📘 Modeling Memristors with Machine Learning
+# Modeling Memristors with Machine Learning
 
-## 🌟 Overview
-This project focuses on **modeling the behavior of memristors** using simulated datasets and applying **machine learning (ML)** to:
-- 🔌 Predict **current (I)** from **voltage (V)** and device parameters  
-- 🟩 Classify **High / Low resistance states**  
-- ⏳ Analyze **time-dependent behavior** with **LSTM networks**  
-- 📊 Visualize **I-V characteristics**, **resistance hysteresis**, and **parameter sensitivity**
+## Overview
 
-Memristors are **non-linear resistive devices with memory**, crucial for **neuromorphic computing** and **next-generation memory systems**.  
-Accurate modeling supports the design of **robust circuits** and **intelligent systems**.
+This project models memristor behavior using simulated datasets and machine learning methods. The main goals are:
 
----
+* predict current (I) from voltage (V) and device parameters,
+* classify high/low resistance states,
+* model time-dependent dynamics with LSTM networks,
+* visualize I–V characteristics, hysteresis, and parameter sensitivity.
 
-## 🎯 Objectives
-- 🔎 Compare memristor models: **Yakopcic, MMS, stat, VTEAM**  
-- 📈 Perform **regression** to predict current *(I)* from voltage *(V)*  
-- 🟩 Perform **classification** of resistance states *(High / Low)*  
-- ⏳ Model **time-dependent dynamics** with **LSTM**  
-- 📊 Visualize **I-V curves**, **R-V hysteresis**, and **parameter sensitivity**
+Memristors are nonlinear resistive devices with memory and are relevant to neuromorphic computing and emerging memory technologies. Accurate data-driven models can support circuit design and system-level analysis.
 
----
+## Objectives
 
-## 📂 Dataset
-Dataset available on **[Kaggle](https://www.kaggle.com/)** in `.mat` format.
+* Compare memristor models: **Yakopcic**, **MMS**, **stat**, **VTEAM**
+* Regression: predict (I) from (V) and parameters
+* Classification: label resistance states (High/Low)
+* Sequential modeling: capture temporal dynamics with LSTMs
+* Visualization: I–V curves, R–V hysteresis loops, and parameter sensitivity
 
-### Included Models
-- Yakopcic  
-- MMS  
-- stat  
-- VTEAM  
+## Dataset
 
-### Fields per Model
-| Model | Main Fields |
-|-------|-------------|
-| Yakopcic, MMS, VTEAM | `Amp`, `Freq`, `Dop`, `Rs`, `U_m`, `I_m`, `t`, `min_r`, `param`, `X`, `G`, `V`, `I`, `cost_function2compare`, `U_sin` |
-| stat | `Amp`, `Freq`, `Dop`, `Rs`, `U_m`, `I_m`, `t`, `std`, `wsk`, `eps`, `I_m_b_interp`, `U_m_b_interp`, `U_sin` |
+The dataset is provided in `.mat` format and is available on Kaggle (see link in the original notebook/repository).
 
----
+Included models:
 
-## 🔬 Methodology
-### 1️⃣ Regression — Current Prediction
-- Predict **I** from **V** and device parameters  
-- Models: Linear Regression & Neural Networks  
-- Evaluation: Predicted vs. Actual scatter plots  
+* Yakopcic
+* MMS
+* stat
+* VTEAM
 
-### 2️⃣ Classification — Resistance States
-- Compute resistance:  R = V / I  
-- Define **High / Low resistance** (median or percentile thresholds)  
-- Model: **Random Forest Classifier**  
-- Metrics: Accuracy, Confusion Matrix, Visualizations  
+Common fields (examples):
 
-### 3️⃣ Sequential Modeling — LSTM
-- Capture **temporal dynamics** of current over time `t`  
-- Create **sliding-window sequences** of `V`, `I`, and parameters  
-- Train **LSTM** to predict next-step current  
-- Visualize predicted vs. actual sequences  
+* For Yakopcic/MMS/VTEAM: `Amp`, `Freq`, `Dop`, `Rs`, `U_m`, `I_m`, `t`, `V`, `I`, plus additional model-specific variables
+* For stat: `Amp`, `Freq`, `Dop`, `Rs`, `U_m`, `I_m`, `t`, and additional statistical/fit variables (e.g., `std`, `wsk`, `eps`)
 
-### 4️⃣ Advanced Analysis
-- 🔄 **Hysteresis Loops:** R-V curves for each model  
-- ⚙️ **Parameter Sensitivity:** Effects of amplitude, frequency, doping  
-- 📐 **Feature Engineering:** Derived features such as `dV/dt` and `dI/dt` to improve ML models  
+## Methodology
 
----
+### 1) Regression (current prediction)
 
-## 🚀 How to Run
-Follow these steps to set up and run the project.
+* Inputs: voltage (V) and device/model parameters
+* Models: linear regression and simple neural networks (baseline)
+* Evaluation: predicted vs. actual plots and standard regression metrics
 
-### 1. Clone the Repository
+### 2) Classification (resistance state)
+
+* Compute resistance: (R = \frac{V}{I})
+* Define High/Low labels using a median or percentile-based threshold
+* Model: Random Forest classifier (baseline)
+* Evaluation: accuracy, confusion matrix, and diagnostic plots
+
+### 3) Sequential modeling (LSTM)
+
+* Construct sliding-window sequences over time (t)
+* Train an LSTM to predict next-step (or multi-step) current
+* Compare predicted vs. ground-truth trajectories
+
+### 4) Additional analysis
+
+* Hysteresis: R–V loops per model and parameter settings
+* Sensitivity analysis: amplitude, frequency, doping effects
+* Feature engineering: derived features such as (dV/dt) and (dI/dt)
+
+## How to Run
+
+Clone the repository and open the notebook/scripts provided:
+
 ```bash
-git clone https://github.com/Lily-Evan/Modeling-Memristors-with-Machine-Learning.git
+git clone https://github.com/PanagiotaGr-/Modeling-Memristors-with-Machine-Learning.git
 cd Modeling-Memristors-with-Machine-Learning
+```
 
-Author: Lily-Evan (original repo) / Adapted by Panagiota G for improved README
+Then follow the notebook instructions (Kaggle or local execution) for data loading and model training.
 
-Kaggle Notebook: Modeling Memristors with Machine Learning
+## Credits
+
