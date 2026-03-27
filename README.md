@@ -73,5 +73,13 @@ cd Modeling-Memristors-with-Machine-Learning
 
 Then follow the notebook instructions (Kaggle or local execution) for data loading and model training.
 
-## Credits
+## How to Cite
+
+```bibtex
+@software{Grosdouli_Memristor_ML_2026,
+  author = {Grosdouli, Panagiota},
+  title = {Modeling Memristor Dynamics with Machine Learning and LSTM Networks},
+  year = {2026},
+  url = {[https://github.com/PanagiotaGr/Modeling-Memristors-with-Machine-Learning](https://github.com/PanagiotaGr/Modeling-Memristors-with-Machine-Learning)}
+}
 
